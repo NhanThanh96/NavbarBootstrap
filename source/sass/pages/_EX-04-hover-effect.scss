@@ -1,0 +1,111 @@
+.effect-1 {
+  $effect: &;
+
+  position: relative;
+  overflow: hidden;
+  color: $cl-dark-black;
+  text-align: center;
+  perspective: 50em;
+
+  &:after {
+    background-color: $cl-white;
+    position: absolute;
+    content: '';
+    display: block;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    transition: all .4s ease-in-out;
+    transform-origin: 50% 50%;
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+
+  &:hover {
+    &:after {
+      transform: rotateX(0);
+      opacity: .9;
+    }
+
+    #{$effect}__caption {
+      transform: translateY(-50%);
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+  }
+
+  &__link {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    opacity: 0;
+    z-index: 1;
+    transition: all .2s;
+    transition-delay: .2s;
+  }
+
+  &__icon {
+    font-size: $font-size-large + 14;
+  }
+}
+
+.effect-2 {
+  $effect2: &;
+
+  width: 200px;
+  height: 200px;
+  position: relative;
+
+  &:hover {
+    #{$effect2}__figure {
+      transform: scale(.4);
+    }
+  }
+
+  &__figure {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    z-index: 2;
+    left: 0;
+    transition: all 200ms ease-in;
+    transform-origin: 50% 20%;
+    transform: scale(1);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    z-index: 1;
+    color: $cl-white;
+    width: 180px;
+  }
+
+  &__title {
+    color: rgba($cl-green, .7);
+  }
+}

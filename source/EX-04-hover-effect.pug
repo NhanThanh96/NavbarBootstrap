@@ -1,0 +1,75 @@
+extends modules/layout/_page-default
+
+block head
+  +head('EX-04-hover-effect')
+block sidebar
+  +sidebar({
+    currentPage: 'Effects'
+  })
+block main
+  .main
+    .container
+      h2.text-align-center Effects
+      h3 Hover use transition, transition origin, transition-delay + transform: translateY()
+      .row
+        -
+          var effect1 = [
+            {
+              image: 'images/effect-n1-1.jpg',
+              subtitle: 'Inverness',
+              title: 'McKenzie',
+              icon: 'fas fa-cloud-upload-alt'
+            },
+            {
+              image: 'images/effect-n1-2.jpg',
+              subtitle: 'Ruby',
+              title: 'Von Rails',
+              icon: 'fas fa-signal'
+            },
+            {
+              image: 'images/effect-n1-1.jpg',
+              subtitle: 'Quiche',
+              title: 'Hollandaise',
+              icon: 'fas fa-share-square'
+            }
+          ]
+        each item in effect1
+          .col-4
+            figure.effect-1
+              img.effect-1__image(src= item.image, alt="image effect")
+              figcaption.effect-1__caption
+                i.effect-1__icon(class= item.icon)
+                h6.effect-1__subtitle= item.subtitle
+                h3.effect-1__title= item.title
+              a.effect-1__link(href="#")
+      h3 Hover use Scale 
+      .row
+        -
+          var effect2 = [
+            {
+              image: 'images/effect-n2-1.png',
+              title: 'best home',
+              summary: 'This home is the best',
+              color: 'yellow'
+            },
+            {
+              image: 'images/effect-n2-2.png',
+              title: 'best picture',
+              summary: 'This home is the best',
+              color: 'green'
+            },
+            {
+              image: 'images/effect-n2-3.png',
+              title: 'best pc',
+              summary: 'This home is the best',
+              color: 'red'
+            }
+          ]
+        each item in effect2
+          .col-4
+            .effect-2(class= `bg--${item.color}`)
+              .effect-2__figure(class= `bg--${item.color}`)
+                img(src= item.image, alt="image")
+              .effect-2__content
+                h4.effect-2__title= item.title
+                p.effect-2__summary= item.summary
